@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Umar Attock Live Weather</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(to bottom,rgb(20, 12, 20),rgb(2, 2, 66));
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    padding:20px 40px;
+    background:rgba(88, 3, 3, 0.904);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.s1 a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* TEXT */
+
+.text{
+    text-align:center;
+    color:white;
+    font-size:34px;
+    font-weight:bold;
+    margin-top:40px;
+    transition:0.4s;
+}
+
+.text:hover{
+    transform:scale(1.03);
+}
+
+/* SEARCH */
+
+.search{
+    text-align:center;
+    margin-top:40px;
+}
+
+.btn1{
+    width:45%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+}
+
+.searchbtn{
+    padding:15px 22px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:purple;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left:10px;
+    transition:0.4s;
+}
+
+.searchbtn:hover{
+    background:#ddd;
+}
+
+/* WEATHER CARDS */
+
+.main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:50px;
+    padding-bottom:40px;
+}
+
+
+.u1 i{
+    font-size:45px;
+    margin-bottom:15px;
+    color:white;
+}
+.u1{
+    width:190px;
+    padding:40px 20px;
+    background:rgb(17, 17, 126);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    box-shadow:0px 4px 20px rgba(0,0,0,0.2);
+    transition:0.4s;
+    border: 2px solid gray;
+}
+
+.u1:hover{
+    transform:translateY(-8px);
+}
+
+.u1 h2{
+    margin-top:20px;
+    font-size:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .text{
+        font-size:25px;
+        padding:10px;
+    }
+
+    .btn1{
+        width:85%;
+    }
+
+    .searchbtn{
+        margin-top:15px;
+    }
+
+    .u1{
+        width:80%;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+         Umar Live Weather
+    </div>
+
+    <div class="s1">
+        <a href="index.html">Home</a>
+    </div>
+
+</div>
+
+<!-- TEXT -->
+
+<div class="text">
+
+    Check Real Weather In <br>
+    Pakistan Punjab, Attock
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search">
+
+    <input
+    type="search"
+    id="city"
+    placeholder="Enter your city"
+    class="btn1">
+
+    <button onclick="getWeather()" class="searchbtn">
+        Search Weather
+    </button>
+
+</div>
+
+<!-- WEATHER CARDS -->
+
+<div class="main">
+
+    <div class="u1">
+<i class="fa-solid fa-temperature-high"></i><br>
+        Temperature
+
+        <h2 id="temp">--°C</h2>
+
+    </div>
+
+    <div class="u1">
+<i class="fa-solid fa-wind"></i>
+        Wind
+
+        <h2 id="wind">-- km/h</h2>
+
+    </div>
+
+    <div class="u1">
+<i class="fa-solid fa-cloud-sun"></i>
+
+        Weather
+
+        <h2 id="weather">--</h2>
+
+    </div>
+
+    <div class="u1">
+<i class="fa-solid fa-droplet"></i>
+        Humidity
+
+        <h2 id="humidity">--%</h2>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const apiKey = "f4ace8cb6c024cdc7a0813043ee98154";
+
+async function getWeather(){
+
+    const city =
+    document.getElementById("city").value;
+
+    if(city === ""){
+
+        alert("Please enter city name");
+        return;
+    }
+
+    document.getElementById("weather").innerHTML =
+    "Loading...";
+
+    const url =
+`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    if(data.cod == "404"){
+
+        alert("City not found");
+        return;
+    }
+
+    document.getElementById("temp").innerHTML =
+    data.main.temp + "°C";
+
+    document.getElementById("weather").innerHTML =
+    data.weather[0].main;
+
+    document.getElementById("humidity").innerHTML =
+    data.main.humidity + "%";
+
+    document.getElementById("wind").innerHTML =
+    data.wind.speed + " km/h";
+}
+
+/* ENTER KEY SUPPORT */
+
+document.getElementById("city")
+.addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+        getWeather();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
