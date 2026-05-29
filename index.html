@@ -252,15 +252,20 @@ const apiKey = "f4ace8cb6c024cdc7a0813043ee98154";
 
 async function getWeather(){
 
-    const city =
-    document.getElementById("city").value;
 
-    if(city === ""){
+let city =
+document.getElementById("city").value.trim();
 
-        alert("Please enter city name");
-        return;
-    }
+if(city === ""){
+    alert("Please enter city name");
+    return;
+}
 
+/* AUTO ADD PAKISTAN */
+
+if(!city.includes(",")){
+    city = city + ",PK";
+}
     document.getElementById("weather").innerHTML =
     "Loading...";
 
@@ -287,7 +292,7 @@ async function getWeather(){
     data.main.humidity + "%";
 
     document.getElementById("wind").innerHTML =
-    data.wind.speed + " km/h";
+(data.wind.speed * 3.6).toFixed(1) + " km/h";
 }
 
 /* ENTER KEY SUPPORT */
