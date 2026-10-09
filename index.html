@@ -16,19 +16,22 @@ border-radius: 130px 200px 20px 20px; border: 3px solid black;
 body{
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      /* background:linear-gradient(to bottom,#141e30,#243b55);  */
     min-height:100vh;
     
 }
 
+p{
+    font-size: small;
+}
     
 .footer{
     display: flex
     ;
     justify-content: space-around;
     align-items: center;
-    background-color: purple;
+    background-color:rgb(60, 8, 192);
     height: 400px;
     margin-top: 20px;
 }
@@ -52,8 +55,7 @@ nav{
     align-items: center;
     padding: 15px;
     top: 0;
-    background-color:purple;
-    
+    background-color:rgb(60, 8, 192);
     
 
 }
@@ -61,7 +63,6 @@ nav{
 .links a{
     display: flex;
     color: black;
-    
      padding: 20px 50px;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -91,23 +92,25 @@ background-color: orangered;
 
 
 .humberger{
-    width:34px ;
+    
     display:none;
-        border: 3px solid rgb(90, 119, 137);
+        border: 2px solid rgb(90, 119, 137);
         border-radius: 4px;
     
 }
-.humberger .bar{
-    margin: 3px;
+ .bar{
+    margin: 2px;
     height: 4px;
     background-color:white;
-
+width:8px ;
     flex-basis:100% ;
 }
 
 @media(max-width:768px){
     nav{
         flex-wrap: wrap;
+        
+        padding: 5px;
         
         
         
@@ -124,17 +127,22 @@ background-color: orangered;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: white;
+        
     }
     .footer{
         flex-direction: column;
     }
 
-
+.links a{
+    color: black;
+}
     
 .links li :hover{
 
 background-color: red;
-width: 150px;
+width: 20px;
+border-radius: 12px;
 
 }
 
@@ -166,13 +174,14 @@ width: 150px;
 
 .text{
     text-align:center;
-    color:darkblue;
+    color: rgb(60, 8, 192);
     font-size:50px;
     font-weight:bold;
      margin-top:40px; 
     transition:0.4s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .text:hover{
@@ -244,15 +253,17 @@ width: 150px;
     border:00.1px solid gray;
 }
 
-.u1:hover{
-    transform:translateY(-8px);
-}
+
+
 
 .u1 h2{
     margin-top:20px;
     font-size:30px;
 }
 
+.img{
+    border-radius: 50%;
+}
 
     
 /* MOBILE */
@@ -278,7 +289,7 @@ width: 150px;
         margin-top:15px;
     }
     .u1{
-        width:77%;margin: 2px;
+        width:75%;margin: 1px;
         height: 100px;
         
     }
@@ -287,7 +298,13 @@ width: 150px;
         grid-template-columns: repeat(2,1fr);
         gap: 0.2rem;
     }
+    .quicklink{
+        width: 300px;
+    }
     
+    .copy{
+        flex-direction: column;
+    }
 
 }
 
@@ -314,7 +331,7 @@ width: 150px;
 <nav>
 
     <div class="logo">
-   <img src="image.png" alt="" width="180px " height="120px">
+   <img src="image.png" alt="" width="70px " height="80px">
     </div>
     <div class="humberger">
         <div class="bar"></div>
@@ -324,7 +341,7 @@ width: 150px;
     <div class="links">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">About</a></li>
+            <li><a href="copy.html">About</a></li>
             <li><a href="index.html">Estimations</a></li>
              
         </ul>
@@ -338,7 +355,7 @@ width: 150px;
  <div class="continer">
 
     <div  class="child">
-<div class="text">
+<div class="text" >
 
     Check Real Weather In <br>
     Atoock Punjab, Pakistan
@@ -364,7 +381,7 @@ width: 150px;
 
 <div class="child" > <div><div class="img">
 
-    <img  src="images (3).jpeg" alt="Attock Live Weather" width="350px" height="300px"  style="pic">
+    <img class="img" src="images (3).jpeg" alt="Attock Live Weather" width="350px" height="350px"  style="pic">
 </div></div></div>
 </div> 
 
@@ -410,9 +427,9 @@ width: 150px;
 </div>
 </body>
 <div class="footer">
-    <div class="heading" style="color: white;">
+    <div class="quicklink" style="color: white;">
         <div class="h">
-            <h1>Weather Website <br></h1><br>
+            <h1 style="font-size: 25px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Weather Website <br></h1><br>
 <p style="font-size: large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400;">
 In this website you <br>can check live weather.
 </p>        </div>
@@ -420,18 +437,20 @@ In this website you <br>can check live weather.
 
 
     <div class="quicklink" style="color: white;">
-        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:  ;font-size: 25px;"> Quick Links</h1>
-        <div class="hq"  style="font-size: large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400; >
-            <a href="" style="color: white; ">Home</a><br>
-            <a href="" style="color: white;">About</a>
+        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 700 ;font-size: 25px;"> Quick Links</h1>
+        <div class="hq"  style="font-size: large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400;"" >
+            <a href="" style="color: white; text-decoration: none;">Home</a><br>
+            <a href="" style="color: white; text-decoration: none;">About</a>
         </div>
     </div>
     <div class="quicklink">
-        <div  style="color: white;"> <h1>Contact </h1></div>
+        <div  style="color: white;"> <h1 style="font-size: 25px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Contact </h1></div>
         
-        <div  style="font-size: large; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400;">  Wahtapp no.</div>
+        <div  style="font-size: large; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400;">  Wahtapp no : ......</div>
         
         </div>
+        
+       
 </div>
 
 
