@@ -7,6 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
 <title>Umar Attock Live Weather</title>
 
 <style>
@@ -267,26 +271,34 @@ border-radius: 12px;
 
 .img{
     border-radius: 50%;
+    margin-top: 40px;
+    margin-right: 20px;
 }
 .whatsapp{
     
      margin:10px
-     
+      
     
 }
 
 .whatsapp a{
     color: white;
     font-weight: 700;
-    font-size: 18px;
-    background-color: rgb(4, 161, 4);
+    padding: 8px;
+    
+    
 text-decoration: none;
-padding: 12px;
+
 position: fixed;
-border-radius:15px 15px 15px 0px;
+border-radius: 50%;
     
 }
-    
+
+i{
+}
+    .whatsapp a{
+        
+    }
 /* MOBILE */
 
 @media(max-width:768px){
@@ -318,7 +330,7 @@ border-radius:15px 15px 15px 0px;
         display: grid;
         grid-template-columns: repeat(2,1fr);
         gap: 0.2rem;
-        margin-top: 150px;
+        margin-top: 60px;
     }
     .quicklink{
         width: 300px;
@@ -333,15 +345,16 @@ border-radius:15px 15px 15px 0px;
     padding: 40px;
 } 
 .whatsapp{
- margin-top: -100px ;
- margin-left: 200px;
+ 
+ margin-left: 130px;
 }
+.img{
+    margin-top: 0;
+    margin-right: 0;
+    
 }
 
-/* 
-.footer{
-    padding: 40px;
-} */
+}
 
 </style>
 
@@ -362,7 +375,7 @@ border-radius:15px 15px 15px 0px;
     <div class="links">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="copy.html">About</a></li>
+            <li><a href="index.html">About</a></li>
             <li><a href="index.html">Estimations</a></li>
              
         </ul>
@@ -410,7 +423,12 @@ border-radius:15px 15px 15px 0px;
 </div>
 
 <!-- WEATHER CARDS -->
-<div class="whatsapp"><a href="https://wa.me/923190510233" target="_blank">Whatsapp</a></div>
+<div class="whatsapp"> <a href="https://wa.me/923190510233" target="_blank" style="display: flex; justify-content:center;"> <p style="color: rgb(133, 119, 10); background-color: rgb(218, 214, 214); color: black; padding: 5px; border-radius: 12px;" > Chat on Whatsapp</p> <i class="fa-brands fa-whatsapp" style="
+    font-size: 50px;
+    color: white;
+    background-color: green;
+    padding: 8px 10px;
+    border-radius: 50%;"></i></a> </div>
 <div class="main">
 
     <div class="u1">
@@ -475,8 +493,9 @@ In this website you <br>can check live in weather.
 </div>
 
 <div class="policy" style="justify-content: center; align-items: center; display: flex; padding: 10px; font-size: 20px;    background-color:rgb(60, 8, 192);">
-     <p style="color:white;">All rights are reserved By the Developer</p>
+     <p style="color:white;"> Copyright All rights are reserved By the Developer</p>
 </div>
+
 
 
 <!-- JAVASCRIPT -->
